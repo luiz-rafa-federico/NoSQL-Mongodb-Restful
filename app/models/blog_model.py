@@ -16,13 +16,20 @@ class Post():
     @staticmethod
     def validate(title=None, author=None, tags=None, content=None):
 
-        validation = not type(title) == str or title == " " or not type(author) == str or author == " " or not type(content) == str or content == " " or not type(tags) == list or not len(tags)
-
         if title and author and content and tags:
-            if validation:
+            if not type(title) == str or title == " " or not type(author) == str or author == " " or not type(content) == str or content == " " or not type(tags) == list or not len(tags):
                 raise TypeError
-        elif title or author or content or tags:
-            if validation:
+        elif title:
+            if not type(title) == str or title == " ":
+                raise TypeError
+        elif author:
+            if not type(author) == str or author == " ":
+                raise TypeError
+        elif tags:
+            if not type(tags) == list or not len(tags):
+                raise TypeError
+        elif content:
+            if not type(content) == str or content == " ":
                 raise TypeError
                 
 
