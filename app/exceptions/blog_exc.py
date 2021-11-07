@@ -3,3 +3,6 @@ class InvalidPostError(Exception):
 
 class FailedDeleteRequest(Exception):
     ...
+
+class EmptyPostsError(Exception):
+    ...
