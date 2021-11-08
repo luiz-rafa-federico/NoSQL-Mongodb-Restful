@@ -15,23 +15,25 @@ class Post():
 
     @staticmethod
     def validate(title, author, tags, content):
-
-        if title and author and content and tags:
-            if not type(title) == str or title == "" or not type(author) == str or author == "" or not type(content) == str or content == "" or not type(tags) == list or not len(tags):
+        if not type(title) == str or not len(title) or not type(author) == str or not len(author) or not type(content) == str or not len(content) or not type(tags) == list or not len(tags):
                 raise TypeError
-        elif title:
-            if not type(title) == str or title == "":
+        
+    
+    @staticmethod
+    def validate_to_update(request):
+        if request.get('title'): 
+            if not type(request.get('title')) == str or not len(request.get('title')):
                 raise TypeError
-        elif author:
-            if not type(author) == str or author == "":
+        if request.get('author'):
+            if not type(request.get('author')) == str or request.get('author') == " ":
                 raise TypeError
-        elif tags:
-            if not type(tags) == list or not len(tags):
+        if request.get('content'):
+            if not type(request.get('content')) == str or request.get('content') == " ":
                 raise TypeError
-        elif content:
-            if not type(content) == str or content == "":
+        if request.get('tags'):
+            if not type(request.get('tags')) == list or len(request.get('tags')) == 0:
                 raise TypeError
-                
+    
 
     @staticmethod
     def get_all():

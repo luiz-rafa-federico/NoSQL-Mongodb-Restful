@@ -42,7 +42,7 @@ def init_app(app:Flask):
     def update_post(id):
         data = request.get_json()
         try:
-            Post.validate(**data)
+            Post.validate_to_update(data)
             post = Post.update(id, **data)
             del post['_id']
             return {'msg': f'Post updated successfully'}, HTTPStatus.OK
