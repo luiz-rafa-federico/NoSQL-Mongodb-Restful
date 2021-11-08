@@ -16,7 +16,7 @@ class Post():
     @staticmethod
     def validate(title, author, tags, content):
         if not type(title) == str or not len(title) or not type(author) == str or not len(author) or not type(content) == str or not len(content) or not type(tags) == list or not len(tags):
-                raise TypeError
+            raise TypeError
         
     
     @staticmethod
